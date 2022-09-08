@@ -5,17 +5,18 @@ class GridViewTask extends StatelessWidget {
   const GridViewTask({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>const MaterialApp(
+  Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
-    home:  Home(),
+    home:   Home(),
   );
 }
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
+   Home({Key? key}) : super(key: key);
+final List <String>images=["img/img1.jpg","img/img2.jpg","img/img3.jpg","img/img1.jpg","img/img2.jpg","img/img3.jpg","img/img1.jpg","img/img2.jpg","img/img3.jpg",];
   @override
   Widget build(BuildContext context) => Scaffold(
+    // backgroundColor: Colors.red,
 
     appBar: AppBar(
       elevation: 0,
@@ -34,21 +35,19 @@ class Home extends StatelessWidget {
         mainAxisSpacing: 4,
         childAspectRatio: .8,
         // scrollDirection: Axis.horizontal,
-        children: List.generate(100, (index) {
+        children: List.generate(images.length, (index) {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Container(
 
               decoration: BoxDecoration(
-              color: Colors.red,
-                borderRadius: BorderRadius.circular(20)
+                  image: DecorationImage(fit: BoxFit.cover,
+                      image: AssetImage(images[index])
+                  ),
+              color: Colors.blue,
+                borderRadius: BorderRadius.circular(30)
               ),
-              child: Center(
-                child: Text(
-                  "item $index",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ),
+
             ),
           );
         }
